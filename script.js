@@ -25,10 +25,20 @@ cards.forEach(card => {
 
     if (name.includes("YouTube")) {
       window.open("https://www.youtube.com/", "_blank");
+      return;
     }
 
     if (name.includes("Live TV")) {
-      document.querySelector(".channel").focus();
+      const liveTV = document.querySelector(".live-tv");
+
+      if (liveTV) {
+        liveTV.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+
+      return;
     }
 
     if (name.includes("Movies")) {
