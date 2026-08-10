@@ -18,12 +18,17 @@ cards.forEach(card => {
   card.addEventListener("click", () => {
     const name = card.textContent.trim();
 
+    if (card.dataset.url) {
+      window.open(card.dataset.url, "_blank");
+      return;
+    }
+
     if (name.includes("YouTube")) {
       window.open("https://www.youtube.com/", "_blank");
     }
 
     if (name.includes("Live TV")) {
-      alert("Live TV is coming next! 📡");
+      document.querySelector(".channel").focus();
     }
 
     if (name.includes("Movies")) {
