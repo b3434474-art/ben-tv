@@ -23,41 +23,90 @@
 
   <section class="tv-guide">
     <div class="guide-header">
-      <h2>📡 Live TV</h2>
+      <div>
+        <h2>📡 Live TV</h2>
+        <p class="guide-subtitle">Free channels and live streams</p>
+      </div>
+
       <div class="now-playing">
         <span>NOW PLAYING</span>
         <strong>Live Channel Guide</strong>
       </div>
     </div>
 
+    <div class="categories">
+      <button class="category active" data-category="all">All</button>
+      <button class="category" data-category="news">📰 News</button>
+      <button class="category" data-category="movies">🎬 Movies</button>
+      <button class="category" data-category="comedy">😂 Comedy</button>
+      <button class="category" data-category="gaming">🎮 Gaming</button>
+      <button class="category" data-category="family">👨‍👩‍👧 Family</button>
+    </div>
+
     <div class="channel-grid">
-      <div class="channel-card" tabindex="0" data-url="https://pluto.tv/">
+      <div class="channel-card" tabindex="0" data-category="movies" data-url="https://pluto.tv/">
         <div class="channel-number">101</div>
         <div class="channel-icon">🪐</div>
         <div class="channel-info">
           <h3>Pluto TV</h3>
           <p>Free Live TV</p>
         </div>
+        <div class="live-badge">LIVE</div>
         <div class="watch">WATCH ▶</div>
       </div>
 
-      <div class="channel-card" tabindex="0" data-url="https://www.tubi.tv/">
+      <div class="channel-card" tabindex="0" data-category="movies" data-url="https://www.tubi.tv/">
         <div class="channel-number">102</div>
         <div class="channel-icon">🟠</div>
         <div class="channel-info">
           <h3>Tubi</h3>
           <p>Free Streaming</p>
         </div>
+        <div class="live-badge">LIVE</div>
         <div class="watch">WATCH ▶</div>
       </div>
 
-      <div class="channel-card" tabindex="0" data-url="https://www.youtube.com/">
+      <div class="channel-card" tabindex="0" data-category="gaming" data-url="https://www.youtube.com/">
         <div class="channel-number">103</div>
         <div class="channel-icon">▶️</div>
         <div class="channel-info">
           <h3>YouTube Live</h3>
           <p>Live Streams</p>
         </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-category="news" data-url="https://www.youtube.com/@ABCNews">
+        <div class="channel-number">104</div>
+        <div class="channel-icon">📰</div>
+        <div class="channel-info">
+          <h3>ABC News Live</h3>
+          <p>Live News</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-category="news" data-url="https://www.youtube.com/@NBCNews">
+        <div class="channel-number">105</div>
+        <div class="channel-icon">📺</div>
+        <div class="channel-info">
+          <h3>NBC News</h3>
+          <p>News and Updates</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-category="family" data-url="https://www.youtube.com/">
+        <div class="channel-number">106</div>
+        <div class="channel-icon">👨‍👩‍👧</div>
+        <div class="channel-info">
+          <h3>Family Live</h3>
+          <p>Family Content</p>
+        </div>
+        <div class="live-badge">LIVE</div>
         <div class="watch">WATCH ▶</div>
       </div>
     </div>
