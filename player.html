@@ -20,7 +20,7 @@
       <div class="sidebar-heading">
         <div>
           <strong>Channels</strong>
-          <span id="channel-count">33 channels</span>
+          <span id="channel-count">29 channels</span>
         </div>
         <button class="sidebar-close" id="sidebar-close" type="button" aria-label="Close channel list">×</button>
       </div>
@@ -102,7 +102,8 @@ const channels = [
   { number:"131", name:"Philadelphia NBC10", description:"Local News", url:"https://www.youtube.com/watch?v=BbCxHt5vUik", embed:"https://www.youtube.com/embed/BbCxHt5vUik?controls=0" },
   { number:"132", name:"Philadelphia FOX", description:"Local News", url:"https://www.youtube.com/watch?v=Yo5G6C9Qex8", embed:"https://www.youtube.com/embed/Yo5G6C9Qex8?controls=0" },
   { number:"133", name:"San Francisco Local News", description:"Local News", url:"https://www.youtube.com/watch?v=rM8rkzxKZRs", embed:"https://www.youtube.com/embed/rM8rkzxKZRs?controls=0" }
-];
+].filter(channel => !["NBC News", "Scripps News", "Bloomberg Business", "Mr. Bean"].includes(channel.name))
+ .map((channel, index) => ({ ...channel, number: String(101 + index) }));
 
 const params = new URLSearchParams(location.search);
 let channelIndex = Number(params.get("channel"));
@@ -234,9 +235,7 @@ fullscreenButton.addEventListener("click", toggleFullscreen);
 fullscreenAction.addEventListener("click", toggleFullscreen);
 
 document.addEventListener("fullscreenchange", () => {
-  const active = Boolean(document.fullscreenElement);
-  fullscreenButton.textContent = active ? "⛶" : "⛶";
-  fullscreenAction.textContent = active ? "⛶ Exit Fullscreen" : "⛶ Fullscreen";
+  fullscreenAction.textContent = document.fullscreenElement ? "⛶ Exit Fullscreen" : "⛶ Fullscreen";
 });
 
 document.addEventListener("keydown", event => {
