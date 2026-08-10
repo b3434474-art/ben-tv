@@ -52,6 +52,7 @@
       width: 100%;
       height: 100%;
       border: 0;
+      display: block;
     }
 
     .player-info {
@@ -132,52 +133,62 @@
       {
         number: "101",
         name: "Pluto TV",
-        url: "https://pluto.tv/"
+        url: "https://pluto.tv/",
+        embed: null
       },
       {
         number: "102",
         name: "Tubi",
-        url: "https://www.tubi.tv/"
+        url: "https://www.tubi.tv/",
+        embed: null
       },
       {
         number: "103",
         name: "YouTube Live",
-        url: "https://www.youtube.com/"
+        url: "https://www.youtube.com/",
+        embed: null
       },
       {
         number: "104",
         name: "ABC News Live",
-        url: "https://www.youtube.com/live/iipR5yUp36o?si=6mTUVLb88W6ZW805"
+        url: "https://www.youtube.com/live/iipR5yUp36o",
+        embed: "https://www.youtube.com/embed/iipR5yUp36o?controls=0"
       },
       {
         number: "105",
         name: "NBC News",
-        url: "https://www.youtube.com/live/HmImKU2D1vM?si=AwpNH4sUGfJ5usy4"
+        url: "https://www.youtube.com/live/HmImKU2D1vM",
+        embed: "https://www.youtube.com/embed/HmImKU2D1vM?controls=0"
       },
       {
         number: "106",
         name: "Family Live",
-        url: "https://www.youtube.com/"
+        url: "https://www.youtube.com/",
+        embed: null
       },
       {
         number: "107",
         name: "Phineas and Ferb Season 1",
-        url: "https://www.youtube.com/live/_HviSyC7zSU?si=1TXOJmzU4jPDu4-_"
+        url: "https://www.youtube.com/live/_HviSyC7zSU",
+        embed: "https://www.youtube.com/embed/_HviSyC7zSU?controls=0"
       },
       {
         number: "108",
         name: "Gravity Falls Season 1",
-        url: "https://www.youtube.com/live/eE1L08hNdW8?si=qmOlkUCORex_jLyj"
+        url: "https://www.youtube.com/live/eE1L08hNdW8",
+        embed: "https://www.youtube.com/embed/eE1L08hNdW8?controls=0"
       },
       {
         number: "109",
         name: "Krabby Patty 24/7 Marathon",
-        url: "https://www.youtube.com/live/toD8HbxRjRE?si=-zLzfDHgcPMTqBtk"
+        url: "https://www.youtube.com/live/toD8HbxRjRE",
+        embed: "https://www.youtube.com/embed/toD8HbxRjRE?controls=0"
       },
       {
         number: "110",
         name: "FOX News",
-        url: "https://www.youtube.com/live/C96oohpWBGw?si=Rpf7MrWZpXZDYd1G"
+        url: "https://www.youtube.com/live/C96oohpWBGw",
+        embed: "https://www.youtube.com/embed/C96oohpWBGw?controls=0"
       }
     ];
 
@@ -198,14 +209,6 @@
     const channelNumber = document.getElementById("channel-number");
     const favoriteButton = document.getElementById("favorite-button");
 
-    function getYouTubeId(url) {
-      const match = url.match(
-        /youtube\.com\/(?:live\/|watch\?v=)([^?&/]+)/
-      );
-
-      return match ? match[1] : null;
-    }
-
     function updateFavorite() {
       const favorites =
         JSON.parse(localStorage.getItem("benTVFavorites")) || [];
@@ -219,20 +222,21 @@
 
     function loadChannel() {
       const channel = channels[currentIndex];
-      const videoId = getYouTubeId(channel.url);
 
       channelName.textContent = channel.name;
       channelNumber.textContent =
         "Channel " + channel.number;
 
-      if (videoId) {
+      if (channel.embed) {
         player.innerHTML =
-          '<iframe src="https://www.youtube.com/embed/' +
-          videoId +
-          '?autoplay=1&rel=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>';
+          '<iframe src="' +
+          channel.embed +
+          '" title="' +
+          channel.name +
+          '" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>';
       } else {
         player.innerHTML =
-          '<div class="message">This channel cannot be embedded here.<br><br>Use Open Stream to watch it.</div>';
+          '<div class="message">This channel does not have an embedded player yet.<br><br>Use Open Stream to watch it.</div>';
       }
 
       updateFavorite();
