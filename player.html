@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -8,11 +7,8 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="player.css">
 </head>
-
 <body>
-
 <div class="player-page">
-
   <div class="player-header">
     <button class="back-button" id="back-button">← Back to Guide</button>
     <div class="logo">📺 Ben TV</div>
@@ -25,493 +21,122 @@
   <div class="player-info">
     <h1 id="channel-name">Channel</h1>
     <p id="channel-number">Ben TV</p>
-
-```
-<div class="player-actions">
-  <button class="player-action" id="previous-button">◀ Previous</button>
-  <button class="player-action" id="next-button">Next ▶</button>
-  <button class="player-action" id="favorite-button">☆ Favorite</button>
-  <button class="player-action" id="open-button">Open Stream ↗</button>
-</div>
-```
-
+    <div class="player-actions">
+      <button class="player-action" id="previous-button">◀ Previous</button>
+      <button class="player-action" id="next-button">Next ▶</button>
+      <button class="player-action" id="favorite-button">☆ Favorite</button>
+      <button class="player-action" id="open-button">Open Stream ↗</button>
+    </div>
   </div>
-
 </div>
 
 <script>
-
 const channels = [
-
-  /* =========================
-     EXISTING CHANNELS
-  ========================= */
-
-  {
-    number: "101",
-    name: "Pluto TV",
-    description: "Free Live TV",
-    url: "https://pluto.tv/",
-    embed: null
-  },
-
-  {
-    number: "102",
-    name: "Tubi",
-    description: "Free Streaming",
-    url: "https://www.tubi.tv/",
-    embed: null
-  },
-
-  {
-    number: "103",
-    name: "YouTube Live",
-    description: "Live Streams",
-    url: "https://www.youtube.com/",
-    embed: null
-  },
-
-  {
-    number: "104",
-    name: "ABC News Live",
-    description: "Live News",
-    url: "https://www.youtube.com/watch?v=iipR5yUp36o",
-    embed: "https://www.youtube.com/embed/iipR5yUp36o?controls=0"
-  },
-
-  {
-    number: "105",
-    name: "NBC News",
-    description: "News and Updates",
-    url: "https://www.youtube.com/watch?v=HmImKU2D1vM",
-    embed: "https://www.youtube.com/embed/HmImKU2D1vM?controls=0"
-  },
-
-  {
-    number: "106",
-    name: "Family Live",
-    description: "Family Content",
-    url: "https://www.youtube.com/",
-    embed: null
-  },
-
-  {
-    number: "107",
-    name: "Phineas and Ferb Season 1",
-    description: "Full Episodes",
-    url: "https://www.youtube.com/watch?v=_HviSyC7zSU",
-    embed: "https://www.youtube.com/embed/_HviSyC7zSU?controls=0"
-  },
-
-  {
-    number: "108",
-    name: "Gravity Falls Season 1",
-    description: "Full Episodes",
-    url: "https://www.youtube.com/watch?v=eE1L08hNdW8",
-    embed: "https://www.youtube.com/embed/eE1L08hNdW8?controls=0"
-  },
-
-  {
-    number: "109",
-    name: "Krabby Patty 24/7 Marathon",
-    description: "Live Marathon",
-    url: "https://www.youtube.com/watch?v=toD8HbxRjRE",
-    embed: "https://www.youtube.com/embed/toD8HbxRjRE?controls=0"
-  },
-
-  {
-    number: "110",
-    name: "FOX News",
-    description: "Live News",
-    url: "https://www.youtube.com/watch?v=C96oohpWBGw",
-    embed: "https://www.youtube.com/embed/C96oohpWBGw?controls=0"
-  },
-
-
-  /* =========================
-     NEWS
-  ========================= */
-
-  {
-    number: "111",
-    name: "Sky News",
-    description: "International News",
-    url: "https://www.youtube.com/watch?v=YDvsBbKfLPA",
-    embed: "https://www.youtube.com/embed/YDvsBbKfLPA?controls=0"
-  },
-
-  {
-    number: "112",
-    name: "CNBC News",
-    description: "Business News",
-    url: "https://www.youtube.com/watch?v=9NyxcX3rhQs",
-    embed: "https://www.youtube.com/embed/9NyxcX3rhQs?controls=0"
-  },
-
-  {
-    number: "113",
-    name: "CBC News",
-    description: "Canadian News",
-    url: "https://www.youtube.com/watch?v=5vfaDsMhCF4",
-    embed: "https://www.youtube.com/embed/5vfaDsMhCF4?controls=0"
-  },
-
-  {
-    number: "114",
-    name: "Yahoo Finance",
-    description: "Finance News",
-    url: "https://www.youtube.com/watch?v=KQp-e_XQnDE",
-    embed: "https://www.youtube.com/embed/KQp-e_XQnDE?controls=0"
-  },
-
-  {
-    number: "115",
-    name: "Fox Weather",
-    description: "Weather News",
-    url: "https://www.youtube.com/watch?v=wt6SIE7BXS8",
-    embed: "https://www.youtube.com/embed/wt6SIE7BXS8?controls=0"
-  },
-
-
-  /* =========================
-     MOVIES
-  ========================= */
-
-  {
-    number: "116",
-    name: "The Lord of the Rings",
-    description: "Movie Marathon",
-    url: "https://www.youtube.com/watch?v=G43NInZfoPE",
-    embed: "https://www.youtube.com/embed/G43NInZfoPE?controls=0"
-  },
-
-  {
-    number: "117",
-    name: "Harry Potter",
-    description: "Movie Marathon",
-    url: "https://www.youtube.com/watch?v=WVwP298MU7I",
-    embed: "https://www.youtube.com/embed/WVwP298MU7I?controls=0"
-  },
-
-  {
-    number: "118",
-    name: "The Office US",
-    description: "Comedy Marathon",
-    url: "https://www.youtube.com/watch?v=AJmaVPfyudQ",
-    embed: "https://www.youtube.com/embed/AJmaVPfyudQ?controls=0"
-  },
-
-
-  /* =========================
-     COMEDY & ENTERTAINMENT
-  ========================= */
-
-  {
-    number: "119",
-    name: "Chocolate Sundaes Comedy",
-    description: "Comedy",
-    url: "https://www.youtube.com/watch?v=37-X4eYGOFY",
-    embed: "https://www.youtube.com/embed/37-X4eYGOFY?controls=0"
-  },
-
-  {
-    number: "120",
-    name: "WW2 In Colour",
-    description: "History",
-    url: "https://www.youtube.com/watch?v=imQGaX_ZdiI",
-    embed: "https://www.youtube.com/embed/imQGaX_ZdiI?controls=0"
-  },
-
-
-  /* =========================
-     KIDS & ANIMATION
-  ========================= */
-
-  {
-    number: "121",
-    name: "Marvel's Avengers",
-    description: "Kids & Animation",
-    url: "https://www.youtube.com/watch?v=hNf5__nxw5s",
-    embed: "https://www.youtube.com/embed/hNf5__nxw5s?controls=0"
-  },
-
-  {
-    number: "122",
-    name: "Ultimate Spider-Man",
-    description: "Kids & Animation",
-    url: "https://www.youtube.com/watch?v=2PzfL3zrE-o",
-    embed: "https://www.youtube.com/embed/2PzfL3zrE-o?controls=0"
-  },
-
-  {
-    number: "123",
-    name: "Lilo & Stitch",
-    description: "Kids & Animation",
-    url: "https://www.youtube.com/watch?v=F4Tnje7wi-o",
-    embed: "https://www.youtube.com/embed/F4Tnje7wi-o?controls=0"
-  },
-
-  {
-    number: "124",
-    name: "Mickey Mouse",
-    description: "Kids & Animation",
-    url: "https://www.youtube.com/watch?v=yHmPWzkhcZ8",
-    embed: "https://www.youtube.com/embed/yHmPWzkhcZ8?controls=0"
-  },
-
-  {
-    number: "125",
-    name: "Pixar Cars",
-    description: "Kids & Animation",
-    url: "https://www.youtube.com/watch?v=yzKTO-6KWHU",
-    embed: "https://www.youtube.com/embed/yzKTO-6KWHU?controls=0"
-  },
-
-  {
-    number: "126",
-    name: "Wizards of Waverly Place",
-    description: "Kids & Family",
-    url: "https://www.youtube.com/watch?v=s1Ylmj87gXY",
-    embed: "https://www.youtube.com/embed/s1Ylmj87gXY?controls=0"
-  },
-
-  {
-    number: "127",
-    name: "Disney Kids Original Series",
-    description: "Kids & Animation",
-    url: "https://www.youtube.com/watch?v=2MC5ltEDu7w",
-    embed: "https://www.youtube.com/embed/2MC5ltEDu7w?controls=0"
-  },
-
-  {
-    number: "128",
-    name: "The New Adventures of Winnie the Pooh",
-    description: "Kids & Family",
-    url: "https://www.youtube.com/watch?v=URXBh2PRp0o",
-    embed: "https://www.youtube.com/embed/URXBh2PRp0o?controls=0"
-  },
-
-  {
-    number: "129",
-    name: "Rapunzel's Tangled Adventure",
-    description: "Kids & Animation",
-    url: "https://www.youtube.com/watch?v=kuIgnSxGirw",
-    embed: "https://www.youtube.com/embed/kuIgnSxGirw?controls=0"
-  },
-
-  {
-    number: "130",
-    name: "Big City Greens",
-    description: "Kids & Animation",
-    url: "https://www.youtube.com/watch?v=B_5RPAixkG4",
-    embed: "https://www.youtube.com/embed/B_5RPAixkG4?controls=0"
-  }
-
+  { number:"101", name:"Pluto TV", description:"Free Live TV", url:"https://pluto.tv/", embed:null },
+  { number:"102", name:"Tubi", description:"Free Streaming", url:"https://www.tubi.tv/", embed:null },
+  { number:"103", name:"YouTube Live", description:"Live Streams", url:"https://www.youtube.com/", embed:null },
+  { number:"104", name:"ABC News Live", description:"Live News", url:"https://www.youtube.com/watch?v=iipR5yUp36o", embed:"https://www.youtube.com/embed/iipR5yUp36o?controls=0" },
+  { number:"105", name:"NBC News", description:"News and Updates", url:"https://www.youtube.com/watch?v=HmImKU2D1vM", embed:"https://www.youtube.com/embed/HmImKU2D1vM?controls=0" },
+  { number:"106", name:"Family Live", description:"Family Content", url:"https://www.youtube.com/", embed:null },
+  { number:"107", name:"Phineas and Ferb Season 1", description:"Full Episodes", url:"https://www.youtube.com/watch?v=_HviSyC7zSU", embed:"https://www.youtube.com/embed/_HviSyC7zSU?controls=0" },
+  { number:"108", name:"Gravity Falls Season 1", description:"Full Episodes", url:"https://www.youtube.com/watch?v=eE1L08hNdW8", embed:"https://www.youtube.com/embed/eE1L08hNdW8?controls=0" },
+  { number:"109", name:"Krabby Patty 24/7 Marathon", description:"Live Marathon", url:"https://www.youtube.com/watch?v=toD8HbxRjRE", embed:"https://www.youtube.com/embed/toD8HbxRjRE?controls=0" },
+  { number:"110", name:"FOX News / LiveNOW FOX", description:"Live News", url:"https://www.youtube.com/watch?v=C96oohpWBGw", embed:"https://www.youtube.com/embed/C96oohpWBGw?controls=0" },
+  { number:"111", name:"Sky News", description:"International News", url:"https://www.youtube.com/watch?v=YDvsBbKfLPA", embed:"https://www.youtube.com/embed/YDvsBbKfLPA?controls=0" },
+  { number:"112", name:"CNBC News", description:"Business News", url:"https://www.youtube.com/watch?v=9NyxcX3rhQs", embed:"https://www.youtube.com/embed/9NyxcX3rhQs?controls=0" },
+  { number:"113", name:"CBC News", description:"Canadian News", url:"https://www.youtube.com/watch?v=5vfaDsMhCF4", embed:"https://www.youtube.com/embed/5vfaDsMhCF4?controls=0" },
+  { number:"114", name:"Yahoo Finance", description:"Finance News", url:"https://www.youtube.com/watch?v=KQp-e_XQnDE", embed:"https://www.youtube.com/embed/KQp-e_XQnDE?controls=0" },
+  { number:"115", name:"Fox Weather", description:"Weather News", url:"https://www.youtube.com/watch?v=wt6SIE7BXS8", embed:"https://www.youtube.com/embed/wt6SIE7BXS8?controls=0" },
+  { number:"116", name:"The Lord of the Rings", description:"Movie Marathon", url:"https://www.youtube.com/watch?v=G43NInZfoPE", embed:"https://www.youtube.com/embed/G43NInZfoPE?controls=0" },
+  { number:"117", name:"Harry Potter", description:"Movie Marathon", url:"https://www.youtube.com/watch?v=WVwP298MU7I", embed:"https://www.youtube.com/embed/WVwP298MU7I?controls=0" },
+  { number:"118", name:"The Office US", description:"Comedy Marathon", url:"https://www.youtube.com/watch?v=AJmaVPfyudQ", embed:"https://www.youtube.com/embed/AJmaVPfyudQ?controls=0" },
+  { number:"119", name:"Chocolate Sundaes Comedy", description:"Comedy", url:"https://www.youtube.com/watch?v=37-X4eYGOFY", embed:"https://www.youtube.com/embed/37-X4eYGOFY?controls=0" },
+  { number:"120", name:"WW2 In Colour", description:"History", url:"https://www.youtube.com/watch?v=imQGaX_ZdiI", embed:"https://www.youtube.com/embed/imQGaX_ZdiI?controls=0" },
+  { number:"121", name:"Marvel's Avengers", description:"Kids & Animation", url:"https://www.youtube.com/watch?v=hNf5__nxw5s", embed:"https://www.youtube.com/embed/hNf5__nxw5s?controls=0" },
+  { number:"122", name:"Ultimate Spider-Man", description:"Kids & Animation", url:"https://www.youtube.com/watch?v=2PzfL3zrE-o", embed:"https://www.youtube.com/embed/2PzfL3zrE-o?controls=0" },
+  { number:"123", name:"Lilo & Stitch", description:"Kids & Animation", url:"https://www.youtube.com/watch?v=F4Tnje7wi-o", embed:"https://www.youtube.com/embed/F4Tnje7wi-o?controls=0" },
+  { number:"124", name:"Mickey Mouse", description:"Kids & Animation", url:"https://www.youtube.com/watch?v=yHmPWzkhcZ8", embed:"https://www.youtube.com/embed/yHmPWzkhcZ8?controls=0" },
+  { number:"125", name:"Pixar Cars", description:"Kids & Animation", url:"https://www.youtube.com/watch?v=yzKTO-6KWHU", embed:"https://www.youtube.com/embed/yzKTO-6KWHU?controls=0" },
+  { number:"126", name:"Wizards of Waverly Place", description:"Kids & Family", url:"https://www.youtube.com/watch?v=s1Ylmj87gXY", embed:"https://www.youtube.com/embed/s1Ylmj87gXY?controls=0" },
+  { number:"127", name:"Disney Kids Original Series", description:"Kids & Animation", url:"https://www.youtube.com/watch?v=2MC5ltEDu7w", embed:"https://www.youtube.com/embed/2MC5ltEDu7w?controls=0" },
+  { number:"128", name:"The New Adventures of Winnie the Pooh", description:"Kids & Family", url:"https://www.youtube.com/watch?v=URXBh2PRp0o", embed:"https://www.youtube.com/embed/URXBh2PRp0o?controls=0" },
+  { number:"129", name:"Rapunzel's Tangled Adventure", description:"Kids & Animation", url:"https://www.youtube.com/watch?v=kuIgnSxGirw", embed:"https://www.youtube.com/embed/kuIgnSxGirw?controls=0" },
+  { number:"130", name:"Big City Greens", description:"Kids & Animation", url:"https://www.youtube.com/watch?v=B_5RPAixkG4", embed:"https://www.youtube.com/embed/B_5RPAixkG4?controls=0" },
+  { number:"131", name:"Philadelphia NBC10", description:"Local News", url:"https://www.youtube.com/watch?v=BbCxHt5vUik", embed:"https://www.youtube.com/embed/BbCxHt5vUik?controls=0" },
+  { number:"132", name:"Philadelphia FOX", description:"Local News", url:"https://www.youtube.com/watch?v=Yo5G6C9Qex8", embed:"https://www.youtube.com/embed/Yo5G6C9Qex8?controls=0" },
+  { number:"133", name:"San Francisco Local News", description:"Local News", url:"https://www.youtube.com/watch?v=rM8rkzxKZRs", embed:"https://www.youtube.com/embed/rM8rkzxKZRs?controls=0" }
 ];
 
-
-/* =========================
-   PLAYER
-========================= */
-
 const params = new URLSearchParams(window.location.search);
-
 let channelIndex = Number(params.get("channel"));
-
-if (
-  Number.isNaN(channelIndex) ||
-  channelIndex < 0 ||
-  channelIndex >= channels.length
-) {
-  channelIndex = 0;
-}
+if (!Number.isInteger(channelIndex) || channelIndex < 0 || channelIndex >= channels.length) channelIndex = 0;
 
 const player = document.getElementById("player");
 const channelName = document.getElementById("channel-name");
 const channelNumber = document.getElementById("channel-number");
-
 const backButton = document.getElementById("back-button");
 const previousButton = document.getElementById("previous-button");
 const nextButton = document.getElementById("next-button");
 const favoriteButton = document.getElementById("favorite-button");
 const openButton = document.getElementById("open-button");
 
-let favorites = JSON.parse(
-  localStorage.getItem("benTVFavorites") || "[]"
-);
-
-
-/* =========================
-   LOAD CHANNEL
-========================= */
+let favorites = JSON.parse(localStorage.getItem("benTVFavorites") || "[]");
 
 function loadChannel() {
-
   const channel = channels[channelIndex];
-
   channelName.textContent = channel.name;
-
-  channelNumber.textContent =
-    "Channel " +
-    channel.number +
-    " • " +
-    channel.description;
+  channelNumber.textContent = `Channel ${channel.number} • ${channel.description}`;
 
   if (channel.embed) {
-
-    player.innerHTML = `
-      <iframe
-        src="${channel.embed}"
-        title="${channel.name}"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowfullscreen>
-      </iframe>
-    `;
-
+    player.innerHTML = `<iframe src="${channel.embed}" title="${channel.name}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
   } else {
-
-    player.innerHTML = `
-      <div class="message">
-        This channel does not have an embedded player yet.
-      </div>
-    `;
-
+    player.innerHTML = `<div class="message">This channel does not have an embedded player yet. Use “Open Stream ↗” to visit it.</div>`;
   }
 
   updateFavoriteButton();
-
-  history.replaceState(
-    null,
-    "",
-    "player.html?channel=" + channelIndex
-  );
+  history.replaceState(null, "", `player.html?channel=${channelIndex}`);
 }
-
-
-/* =========================
-   FAVORITES
-========================= */
 
 function updateFavoriteButton() {
-
   const channel = channels[channelIndex];
-
-  if (favorites.includes(channel.url)) {
-
-    favoriteButton.textContent = "★ Favorited";
-
-  } else {
-
-    favoriteButton.textContent = "☆ Favorite";
-
-  }
+  favoriteButton.textContent = favorites.includes(channel.url) ? "★ Favorited" : "☆ Favorite";
 }
 
-
-/* =========================
-   BUTTONS
-========================= */
-
-backButton.addEventListener("click", () => {
-
-  window.location.href = "index.html";
-
-});
-
+backButton.addEventListener("click", () => window.location.href = "index.html");
 
 previousButton.addEventListener("click", () => {
-
-  channelIndex--;
-
-  if (channelIndex < 0) {
-    channelIndex = channels.length - 1;
-  }
-
+  channelIndex = (channelIndex - 1 + channels.length) % channels.length;
   loadChannel();
-
 });
-
 
 nextButton.addEventListener("click", () => {
-
-  channelIndex++;
-
-  if (channelIndex >= channels.length) {
-    channelIndex = 0;
-  }
-
+  channelIndex = (channelIndex + 1) % channels.length;
   loadChannel();
-
 });
-
 
 favoriteButton.addEventListener("click", () => {
-
-  const channel = channels[channelIndex];
-
-  if (favorites.includes(channel.url)) {
-
-    favorites = favorites.filter(
-      item => item !== channel.url
-    );
-
+  const url = channels[channelIndex].url;
+  if (favorites.includes(url)) {
+    favorites = favorites.filter(item => item !== url);
   } else {
-
-    favorites.push(channel.url);
-
+    favorites.push(url);
   }
-
-  localStorage.setItem(
-    "benTVFavorites",
-    JSON.stringify(favorites)
-  );
-
+  localStorage.setItem("benTVFavorites", JSON.stringify(favorites));
   updateFavoriteButton();
-
 });
-
 
 openButton.addEventListener("click", () => {
-
-  const channel = channels[channelIndex];
-
-  window.open(
-    channel.url,
-    "_blank"
-  );
-
+  window.open(channels[channelIndex].url, "_blank", "noopener,noreferrer");
 });
-
-
-/* =========================
-   KEYBOARD CONTROLS
-========================= */
 
 document.addEventListener("keydown", event => {
-
-  if (event.key === "ArrowLeft") {
-    previousButton.click();
-  }
-
-  if (event.key === "ArrowRight") {
-    nextButton.click();
-  }
-
-  if (event.key === "Escape") {
-    backButton.click();
-  }
-
+  if (event.target.matches("input, textarea, button")) return;
+  if (event.key === "ArrowLeft") previousButton.click();
+  if (event.key === "ArrowRight") nextButton.click();
+  if (event.key === "Escape") backButton.click();
 });
 
-
-/* =========================
-   START
-========================= */
-
 loadChannel();
-
 </script>
-
 </body>
 </html>
