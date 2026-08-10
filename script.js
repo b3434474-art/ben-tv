@@ -6,7 +6,11 @@ function updateClock() {
     minute: "2-digit"
   });
 
-  document.getElementById("clock").textContent = time;
+  const clock = document.getElementById("clock");
+
+  if (clock) {
+    clock.textContent = time;
+  }
 }
 
 updateClock();
@@ -21,15 +25,20 @@ const favoritesButton = document.getElementById("favorites-button");
 let selectedCategory = "all";
 let favoritesMode = false;
 
-let favorites =
-  JSON.parse(localStorage.getItem("benTVFavorites")) || [];
+let favorites = JSON.parse(
+  localStorage.getItem("benTVFavorites") || "[]"
+);
 
 channels.forEach(channel => {
   const favorite = document.createElement("button");
 
   favorite.className = "favorite-button";
-  favorite.textContent =
-    favorites.includes(channel.dataset.url) ? "★" : "☆";
+
+  favorite.textContent = favorites.includes(
+    channel.dataset.url
+  )
+    ? "★"
+    : "☆";
 
   favorite.title = "Add to favorites";
 
@@ -58,21 +67,23 @@ channels.forEach(channel => {
 
   channel.appendChild(favorite);
 
-  channel.addEventListener("click", () => {
+  function openPlayer() {
     const playerIndex = channel.dataset.player;
 
     window.location.href =
       "player.html?channel=" + playerIndex;
+  }
+
+  channel.addEventListener("click", event => {
+    if (!event.target.closest(".favorite-button")) {
+      openPlayer();
+    }
   });
 
   channel.addEventListener("keydown", event => {
     if (event.key === "Enter" || event.key === " ") {
       event.preventDefault();
-
-      const playerIndex = channel.dataset.player;
-
-      window.location.href =
-        "player.html?channel=" + playerIndex;
+      openPlayer();
     }
   });
 });
@@ -91,8 +102,7 @@ categories.forEach(category => {
 
     category.classList.add("active");
 
-    selectedCategory =
-      category.dataset.category;
+    selectedCategory = category.dataset.category;
 
     filterChannels();
   });
@@ -109,10 +119,9 @@ if (favoritesButton) {
         category.classList.remove("active");
       });
 
-      const allCategory =
-        document.querySelector(
-          '.category[data-category="all"]'
-        );
+      const allCategory = document.querySelector(
+        '.category[data-category="all"]'
+      );
 
       if (allCategory) {
         allCategory.classList.add("active");
@@ -128,16 +137,13 @@ if (favoritesButton) {
 }
 
 if (searchInput) {
-  searchInput.addEventListener("input", () => {
-    filterChannels();
-  });
+  searchInput.addEventListener("input", filterChannels);
 }
 
 function filterChannels() {
-  const searchText =
-    searchInput
-      ? searchInput.value.toLowerCase().trim()
-      : "";
+  const searchText = searchInput
+    ? searchInput.value.toLowerCase().trim()
+    : "";
 
   let visibleChannels = 0;
 
