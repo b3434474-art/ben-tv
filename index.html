@@ -21,21 +21,47 @@
     <div class="card" tabindex="0" id="favorites-button">⭐ Favorites</div>
   </div>
 
-  <h2>📡 Live TV</h2>
-
-  <div class="row">
-    <div class="card channel" tabindex="0" data-url="https://pluto.tv/">
-      Pluto TV
+  <section class="tv-guide">
+    <div class="guide-header">
+      <h2>📡 Live TV</h2>
+      <div class="now-playing">
+        <span>NOW PLAYING</span>
+        <strong>Live Channel Guide</strong>
+      </div>
     </div>
 
-    <div class="card channel" tabindex="0" data-url="https://www.tubi.tv/">
-      Tubi
-    </div>
+    <div class="channel-grid">
+      <div class="channel-card" tabindex="0" data-url="https://pluto.tv/">
+        <div class="channel-number">101</div>
+        <div class="channel-icon">🪐</div>
+        <div class="channel-info">
+          <h3>Pluto TV</h3>
+          <p>Free Live TV</p>
+        </div>
+        <div class="watch">WATCH ▶</div>
+      </div>
 
-    <div class="card channel" tabindex="0" data-url="https://www.youtube.com/">
-      YouTube Live
+      <div class="channel-card" tabindex="0" data-url="https://www.tubi.tv/">
+        <div class="channel-number">102</div>
+        <div class="channel-icon">🟠</div>
+        <div class="channel-info">
+          <h3>Tubi</h3>
+          <p>Free Streaming</p>
+        </div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-url="https://www.youtube.com/">
+        <div class="channel-number">103</div>
+        <div class="channel-icon">▶️</div>
+        <div class="channel-info">
+          <h3>YouTube Live</h3>
+          <p>Live Streams</p>
+        </div>
+        <div class="watch">WATCH ▶</div>
+      </div>
     </div>
-  </div>
+  </section>
 
   <script src="script.js"></script>
 </body>
