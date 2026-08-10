@@ -36,7 +36,7 @@ h2 {
   display: flex;
   gap: 20px;
   overflow-x: auto;
-  padding: 10px 5px 30px;
+  padding: 10px 5px 35px;
 }
 
 .card {
@@ -61,6 +61,94 @@ h2 {
 .card:focus {
   outline: 4px solid white;
   transform: scale(1.06);
+}
+
+.tv-guide {
+  margin-top: 20px;
+}
+
+.guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.now-playing {
+  background: #17171e;
+  border-radius: 12px;
+  padding: 12px 18px;
+  text-align: right;
+}
+
+.now-playing span {
+  display: block;
+  font-size: 11px;
+  opacity: 0.6;
+  margin-bottom: 4px;
+}
+
+.now-playing strong {
+  font-size: 15px;
+}
+
+.channel-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.channel-card {
+  min-height: 100px;
+  background: #17171e;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  padding: 18px 24px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.channel-card:hover {
+  transform: scale(1.02);
+  background: #25252e;
+}
+
+.channel-card:focus {
+  outline: 4px solid white;
+  transform: scale(1.02);
+}
+
+.channel-number {
+  font-size: 18px;
+  font-weight: bold;
+  width: 45px;
+}
+
+.channel-icon {
+  font-size: 38px;
+  width: 60px;
+  text-align: center;
+}
+
+.channel-info {
+  flex: 1;
+}
+
+.channel-info h3 {
+  margin: 0 0 6px;
+  font-size: 21px;
+}
+
+.channel-info p {
+  margin: 0;
+  opacity: 0.6;
+}
+
+.watch {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 ::-webkit-scrollbar {
