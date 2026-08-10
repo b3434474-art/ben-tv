@@ -1,4 +1,3 @@
-// Clock
 function updateClock() {
   const now = new Date();
 
@@ -13,8 +12,6 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-
-// Card actions
 const cards = document.querySelectorAll(".card");
 
 cards.forEach(card => {
