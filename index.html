@@ -21,6 +21,15 @@
     <div class="card" tabindex="0" id="favorites-button">⭐ Favorites</div>
   </div>
 
+  <div class="search-container">
+    <input
+      type="search"
+      id="search-input"
+      placeholder="🔍 Search channels and shows..."
+      autocomplete="off"
+    >
+  </div>
+
   <section class="tv-guide">
     <div class="guide-header">
       <div>
@@ -43,7 +52,7 @@
       <button class="category" data-category="family">👨‍👩‍👧 Family</button>
     </div>
 
-    <div class="channel-grid">
+    <div class="channel-grid" id="channel-grid">
       <div class="channel-card" tabindex="0" data-category="movies" data-url="https://pluto.tv/">
         <div class="channel-number">101</div>
         <div class="channel-icon">🪐</div>
@@ -142,6 +151,10 @@
         <div class="live-badge">LIVE</div>
         <div class="watch">WATCH ▶</div>
       </div>
+    </div>
+
+    <div class="no-results" id="no-results">
+      No channels or shows found.
     </div>
   </section>
 
