@@ -24,28 +24,22 @@ let favoritesMode = false;
 let favorites =
   JSON.parse(localStorage.getItem("benTVFavorites")) || [];
 
-channels.forEach((channel, index) => {
+channels.forEach(channel => {
   const favorite = document.createElement("button");
 
   favorite.className = "favorite-button";
-
   favorite.textContent =
-    favorites.includes(channel.dataset.url)
-      ? "★"
-      : "☆";
+    favorites.includes(channel.dataset.url) ? "★" : "☆";
 
   favorite.title = "Add to favorites";
 
-  favorite.addEventListener("click", function(event) {
+  favorite.addEventListener("click", event => {
     event.stopPropagation();
 
     const url = channel.dataset.url;
 
     if (favorites.includes(url)) {
-      favorites = favorites.filter(
-        item => item !== url
-      );
-
+      favorites = favorites.filter(item => item !== url);
       favorite.textContent = "☆";
     } else {
       favorites.push(url);
@@ -64,61 +58,86 @@ channels.forEach((channel, index) => {
 
   channel.appendChild(favorite);
 
-  channel.addEventListener("click", function() {
+  channel.addEventListener("click", () => {
+    const playerIndex = channel.dataset.player;
+
     window.location.href =
-      "player.html?channel=" + index;
+      "player.html?channel=" + playerIndex;
+  });
+
+  channel.addEventListener("keydown", event => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+
+      const playerIndex = channel.dataset.player;
+
+      window.location.href =
+        "player.html?channel=" + playerIndex;
+    }
   });
 });
 
 categories.forEach(category => {
-  category.addEventListener("click", function() {
+  category.addEventListener("click", () => {
     favoritesMode = false;
 
-    favoritesButton.textContent =
-      "⭐ Favorites";
+    if (favoritesButton) {
+      favoritesButton.textContent = "⭐ Favorites";
+    }
 
     categories.forEach(button => {
       button.classList.remove("active");
     });
 
-    this.classList.add("active");
+    category.classList.add("active");
 
     selectedCategory =
-      this.dataset.category;
+      category.dataset.category;
 
     filterChannels();
   });
 });
 
-favoritesButton.addEventListener("click", function() {
-  favoritesMode = !favoritesMode;
+if (favoritesButton) {
+  favoritesButton.addEventListener("click", () => {
+    favoritesMode = !favoritesMode;
 
-  if (favoritesMode) {
-    favoritesButton.textContent =
-      "⭐ Favorites ON";
+    if (favoritesMode) {
+      favoritesButton.textContent = "⭐ Favorites ON";
 
-    categories.forEach(category => {
-      category.classList.remove("active");
-    });
+      categories.forEach(category => {
+        category.classList.remove("active");
+      });
 
-    categories[0].classList.add("active");
+      const allCategory =
+        document.querySelector(
+          '.category[data-category="all"]'
+        );
 
-    selectedCategory = "all";
-  } else {
-    favoritesButton.textContent =
-      "⭐ Favorites";
-  }
+      if (allCategory) {
+        allCategory.classList.add("active");
+      }
 
-  filterChannels();
-});
+      selectedCategory = "all";
+    } else {
+      favoritesButton.textContent = "⭐ Favorites";
+    }
 
-searchInput.addEventListener("input", function() {
-  filterChannels();
-});
+    filterChannels();
+  });
+}
+
+if (searchInput) {
+  searchInput.addEventListener("input", () => {
+    filterChannels();
+  });
+}
 
 function filterChannels() {
   const searchText =
-    searchInput.value.toLowerCase().trim();
+    searchInput
+      ? searchInput.value.toLowerCase().trim()
+      : "";
 
   let visibleChannels = 0;
 
@@ -155,8 +174,12 @@ function filterChannels() {
     }
   });
 
-  noResults.style.display =
-    visibleChannels === 0
-      ? "block"
-      : "none";
+  if (noResults) {
+    noResults.style.display =
+      visibleChannels === 0
+        ? "block"
+        : "none";
+  }
 }
+
+filterChannels();
