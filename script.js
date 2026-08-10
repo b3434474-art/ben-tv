@@ -26,6 +26,10 @@ document.getElementById("favorites-button").addEventListener("click", function()
 
 const channels = document.querySelectorAll(".channel-card");
 const categories = document.querySelectorAll(".category");
+const searchInput = document.getElementById("search-input");
+const noResults = document.getElementById("no-results");
+
+let selectedCategory = "all";
 
 channels.forEach(channel => {
   channel.addEventListener("click", function() {
@@ -40,15 +44,40 @@ categories.forEach(category => {
     });
 
     this.classList.add("active");
+    selectedCategory = this.dataset.category;
 
-    const selectedCategory = this.dataset.category;
-
-    channels.forEach(channel => {
-      if (selectedCategory === "all" || channel.dataset.category === selectedCategory) {
-        channel.style.display = "flex";
-      } else {
-        channel.style.display = "none";
-      }
-    });
+    filterChannels();
   });
 });
+
+searchInput.addEventListener("input", function() {
+  filterChannels();
+});
+
+function filterChannels() {
+  const searchText = searchInput.value.toLowerCase().trim();
+  let visibleChannels = 0;
+
+  channels.forEach(channel => {
+    const channelText = channel.textContent.toLowerCase();
+    const channelCategory = channel.dataset.category;
+
+    const matchesSearch = channelText.includes(searchText);
+    const matchesCategory =
+      selectedCategory === "all" ||
+      channelCategory === selectedCategory;
+
+    if (matchesSearch && matchesCategory) {
+      channel.style.display = "flex";
+      visibleChannels++;
+    } else {
+      channel.style.display = "none";
+    }
+  });
+
+  if (visibleChannels === 0) {
+    noResults.style.display = "block";
+  } else {
+    noResults.style.display = "none";
+  }
+}
