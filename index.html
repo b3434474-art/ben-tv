@@ -1,131 +1,176 @@
-<div class="now-playing">
-  <span>NOW PLAYING</span>
-  <strong>Live Channel Guide</strong>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ben TV</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-<div class="categories">
-  <button class="category active" data-category="all">All</button>
-  <button class="category" data-category="news">📰 News</button>
-  <button class="category" data-category="movies">🎬 Movies</button>
-  <button class="category" data-category="comedy">😂 Comedy</button>
-  <button class="category" data-category="gaming">🎮 Gaming</button>
-  <button class="category" data-category="family">👨‍👩‍👧 Family</button>
-</div>
+<body>
 
-<div class="channel-grid" id="channel-grid">
+<header>
+  <div class="logo">📺 Ben TV</div>
+  <div class="clock" id="clock">--:--</div>
+</header>
 
-  <div class="channel-card" tabindex="0" data-player="0" data-category="movies" data-url="https://pluto.tv/">
-    <div class="channel-number">101</div>
-    <div class="channel-icon">🪐</div>
-    <div class="channel-info">
-      <h3>Pluto TV</h3>
-      <p>Free Live TV</p>
-    </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
+<main>
+
+  <div class="search-container">
+    <input
+      type="search"
+      id="search-input"
+      placeholder="Search channels and shows..."
+      autocomplete="off"
+    >
   </div>
 
-  <div class="channel-card" tabindex="0" data-player="1" data-category="movies" data-url="https://www.tubi.tv/">
-    <div class="channel-number">102</div>
-    <div class="channel-icon">🟠</div>
-    <div class="channel-info">
-      <h3>Tubi</h3>
-      <p>Free Streaming</p>
+  <div class="tv-guide">
+
+    <div class="guide-header">
+      <div>
+        <h2>Live Channel Guide</h2>
+        <p class="guide-subtitle">Choose something to watch</p>
+      </div>
+
+      <div class="now-playing">
+        <span>NOW PLAYING</span>
+        <strong>Live Channel Guide</strong>
+      </div>
     </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
+
+    <div class="categories">
+      <button class="category active" data-category="all">All</button>
+      <button class="category" data-category="news">📰 News</button>
+      <button class="category" data-category="movies">🎬 Movies</button>
+      <button class="category" data-category="comedy">😂 Comedy</button>
+      <button class="category" data-category="gaming">🎮 Gaming</button>
+      <button class="category" data-category="family">👨‍👩‍👧 Family</button>
+    </div>
+
+    <div class="channel-grid" id="channel-grid">
+
+      <div class="channel-card" tabindex="0" data-player="0" data-category="movies" data-url="https://pluto.tv/">
+        <div class="channel-number">101</div>
+        <div class="channel-icon">🪐</div>
+        <div class="channel-info">
+          <h3>Pluto TV</h3>
+          <p>Free Live TV</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-player="1" data-category="movies" data-url="https://www.tubi.tv/">
+        <div class="channel-number">102</div>
+        <div class="channel-icon">🟠</div>
+        <div class="channel-info">
+          <h3>Tubi</h3>
+          <p>Free Streaming</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-player="2" data-category="gaming" data-url="https://www.youtube.com/">
+        <div class="channel-number">103</div>
+        <div class="channel-icon">▶️</div>
+        <div class="channel-info">
+          <h3>YouTube Live</h3>
+          <p>Live Streams</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-player="3" data-category="news" data-url="https://www.youtube.com/live/iipR5yUp36o">
+        <div class="channel-number">104</div>
+        <div class="channel-icon">📰</div>
+        <div class="channel-info">
+          <h3>ABC News Live</h3>
+          <p>Live News</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-player="4" data-category="news" data-url="https://www.youtube.com/live/HmImKU2D1vM">
+        <div class="channel-number">105</div>
+        <div class="channel-icon">📺</div>
+        <div class="channel-info">
+          <h3>NBC News</h3>
+          <p>News and Updates</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-player="5" data-category="family" data-url="https://www.youtube.com/">
+        <div class="channel-number">106</div>
+        <div class="channel-icon">👨‍👩‍👧</div>
+        <div class="channel-info">
+          <h3>Family Live</h3>
+          <p>Family Content</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-player="6" data-category="family" data-url="https://www.youtube.com/live/_HviSyC7zSU">
+        <div class="channel-number">107</div>
+        <div class="channel-icon">🐿️</div>
+        <div class="channel-info">
+          <h3>Phineas and Ferb Season 1</h3>
+          <p>Full Episodes</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-player="7" data-category="family" data-url="https://www.youtube.com/live/eE1L08hNdW8">
+        <div class="channel-number">108</div>
+        <div class="channel-icon">🌲</div>
+        <div class="channel-info">
+          <h3>Gravity Falls Season 1</h3>
+          <p>Full Episodes</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-player="8" data-category="family" data-url="https://www.youtube.com/live/toD8HbxRjRE">
+        <div class="channel-number">109</div>
+        <div class="channel-icon">🍔</div>
+        <div class="channel-info">
+          <h3>Krabby Patty 24/7 Marathon</h3>
+          <p>Live Marathon</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+      <div class="channel-card" tabindex="0" data-player="9" data-category="news" data-url="https://www.youtube.com/live/C96oohpWBGw">
+        <div class="channel-number">110</div>
+        <div class="channel-icon">🦊</div>
+        <div class="channel-info">
+          <h3>FOX News</h3>
+          <p>Live News</p>
+        </div>
+        <div class="live-badge">LIVE</div>
+        <div class="watch">WATCH ▶</div>
+      </div>
+
+    </div>
+
+    <div class="no-results" id="no-results">
+      No channels or shows found.
+    </div>
+
   </div>
 
-  <div class="channel-card" tabindex="0" data-player="2" data-category="gaming" data-url="https://www.youtube.com/">
-    <div class="channel-number">103</div>
-    <div class="channel-icon">▶️</div>
-    <div class="channel-info">
-      <h3>YouTube Live</h3>
-      <p>Live Streams</p>
-    </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
-  </div>
+</main>
 
-  <div class="channel-card" tabindex="0" data-player="3" data-category="news" data-url="https://www.youtube.com/live/iipR5yUp36o">
-    <div class="channel-number">104</div>
-    <div class="channel-icon">📰</div>
-    <div class="channel-info">
-      <h3>ABC News Live</h3>
-      <p>Live News</p>
-    </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
-  </div>
+<script src="script.js"></script>
 
-  <div class="channel-card" tabindex="0" data-player="4" data-category="news" data-url="https://www.youtube.com/live/HmImKU2D1vM">
-    <div class="channel-number">105</div>
-    <div class="channel-icon">📺</div>
-    <div class="channel-info">
-      <h3>NBC News</h3>
-      <p>News and Updates</p>
-    </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
-  </div>
-
-  <div class="channel-card" tabindex="0" data-player="5" data-category="family" data-url="https://www.youtube.com/">
-    <div class="channel-number">106</div>
-    <div class="channel-icon">👨‍👩‍👧</div>
-    <div class="channel-info">
-      <h3>Family Live</h3>
-      <p>Family Content</p>
-    </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
-  </div>
-
-  <div class="channel-card" tabindex="0" data-player="6" data-category="family" data-url="https://www.youtube.com/live/_HviSyC7zSU">
-    <div class="channel-number">107</div>
-    <div class="channel-icon">🐿️</div>
-    <div class="channel-info">
-      <h3>Phineas and Ferb Season 1</h3>
-      <p>Full Episodes</p>
-    </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
-  </div>
-
-  <div class="channel-card" tabindex="0" data-player="7" data-category="family" data-url="https://www.youtube.com/live/eE1L08hNdW8">
-    <div class="channel-number">108</div>
-    <div class="channel-icon">🌲</div>
-    <div class="channel-info">
-      <h3>Gravity Falls Season 1</h3>
-      <p>Full Episodes</p>
-    </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
-  </div>
-
-  <div class="channel-card" tabindex="0" data-player="8" data-category="family" data-url="https://www.youtube.com/live/toD8HbxRjRE">
-    <div class="channel-number">109</div>
-    <div class="channel-icon">🍔</div>
-    <div class="channel-info">
-      <h3>Krabby Patty 24/7 Marathon</h3>
-      <p>Live Marathon</p>
-    </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
-  </div>
-
-  <div class="channel-card" tabindex="0" data-player="9" data-category="news" data-url="https://www.youtube.com/live/C96oohpWBGw">
-    <div class="channel-number">110</div>
-    <div class="channel-icon">🦊</div>
-    <div class="channel-info">
-      <h3>FOX News</h3>
-      <p>Live News</p>
-    </div>
-    <div class="live-badge">LIVE</div>
-    <div class="watch">WATCH ▶</div>
-  </div>
-
-</div>
-
-<div class="no-results" id="no-results">
-  No channels or shows found.
-</div>
+</body>
+</html>
