@@ -63,6 +63,33 @@ h2 {
   transform: scale(1.06);
 }
 
+.search-container {
+  margin: 10px 0 35px;
+}
+
+#search-input {
+  width: 100%;
+  max-width: 700px;
+  height: 58px;
+  padding: 0 22px;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background: #17171e;
+  color: white;
+  font-size: 18px;
+  outline: none;
+  transition: border 0.2s, background 0.2s;
+}
+
+#search-input::placeholder {
+  color: #888;
+}
+
+#search-input:focus {
+  border-color: white;
+  background: #202029;
+}
+
 .tv-guide {
   margin-top: 20px;
 }
@@ -204,6 +231,14 @@ h2 {
   font-weight: bold;
 }
 
+.no-results {
+  display: none;
+  padding: 30px;
+  text-align: center;
+  color: #888;
+  font-size: 18px;
+}
+
 ::-webkit-scrollbar {
   height: 8px;
 }
@@ -211,4 +246,63 @@ h2 {
 ::-webkit-scrollbar-thumb {
   background: #555;
   border-radius: 10px;
+}
+
+@media (max-width: 700px) {
+  body {
+    padding: 20px;
+  }
+
+  header {
+    margin-bottom: 30px;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  .clock {
+    font-size: 18px;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+
+  .guide-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .now-playing {
+    text-align: left;
+  }
+
+  .channel-card {
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .channel-number {
+    width: 30px;
+    font-size: 14px;
+  }
+
+  .channel-icon {
+    width: 40px;
+    font-size: 28px;
+  }
+
+  .channel-info h3 {
+    font-size: 17px;
+  }
+
+  .channel-info p {
+    font-size: 13px;
+  }
+
+  .watch {
+    font-size: 11px;
+  }
 }
