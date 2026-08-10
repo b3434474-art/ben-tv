@@ -12,38 +12,29 @@ function updateClock() {
 updateClock();
 setInterval(updateClock, 1000);
 
-const cards = document.querySelectorAll(".card");
+document.getElementById("youtube-button").addEventListener("click", function() {
+  window.open("https://www.youtube.com/", "_blank");
+});
 
-cards.forEach(card => {
-  card.addEventListener("click", () => {
-    const name = card.textContent.trim();
+document.getElementById("live-tv-button").addEventListener("click", function() {
+  document.getElementById("live-tv-section").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+});
 
-    if (card.dataset.url) {
-      window.open(card.dataset.url, "_blank");
-      return;
-    }
+document.getElementById("movies-button").addEventListener("click", function() {
+  alert("Movies are coming next! 🎬");
+});
 
-    if (name.includes("YouTube")) {
-      window.open("https://www.youtube.com/", "_blank");
-      return;
-    }
+document.getElementById("favorites-button").addEventListener("click", function() {
+  alert("Favorites are coming next! ⭐");
+});
 
-    if (name.includes("Live TV")) {
-      document.getElementById("live-tv-section").scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
-      return;
-    }
+const channels = document.querySelectorAll(".channel");
 
-    if (name.includes("Movies")) {
-      alert("Movies are coming next! 🎬");
-      return;
-    }
-
-    if (name.includes("Favorites")) {
-      alert("Favorites are coming next! ⭐");
-      return;
-    }
+channels.forEach(channel => {
+  channel.addEventListener("click", function() {
+    window.open(this.dataset.url, "_blank");
   });
 });
