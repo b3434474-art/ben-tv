@@ -24,7 +24,7 @@ document.getElementById("favorites-button").addEventListener("click", function()
   alert("Favorites are coming next! ⭐");
 });
 
-const channels = document.querySelectorAll(".channel");
+const channels = document.querySelectorAll(".channel-card");
 
 channels.forEach(channel => {
   channel.addEventListener("click", function() {
