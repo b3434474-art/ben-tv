@@ -16,13 +16,6 @@ document.getElementById("youtube-button").addEventListener("click", function() {
   window.open("https://www.youtube.com/", "_blank");
 });
 
-document.getElementById("live-tv-button").addEventListener("click", function() {
-  document.getElementById("live-tv-section").scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-});
-
 document.getElementById("movies-button").addEventListener("click", function() {
   alert("Movies are coming next! 🎬");
 });
