@@ -29,24 +29,21 @@ cards.forEach(card => {
     }
 
     if (name.includes("Live TV")) {
-      const liveTV = document.querySelector(".live-tv");
-
-      if (liveTV) {
-        liveTV.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
-
+      document.getElementById("live-tv-section").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
       return;
     }
 
     if (name.includes("Movies")) {
       alert("Movies are coming next! 🎬");
+      return;
     }
 
     if (name.includes("Favorites")) {
       alert("Favorites are coming next! ⭐");
+      return;
     }
   });
 });
