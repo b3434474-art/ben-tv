@@ -303,6 +303,25 @@ h2 {
   }
 
   .watch {
+    .favorite-button {
+  border: none;
+  background: transparent;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 8px 12px;
+  margin-left: 10px;
+  transition: transform 0.2s;
+}
+
+.favorite-button:hover {
+  transform: scale(1.2);
+}
+
+.favorite-button:focus {
+  outline: 3px solid white;
+  border-radius: 8px;
+}
     font-size: 11px;
   }
 }
