@@ -54,15 +54,34 @@
       <div class="channel-card" tabindex="0" data-player="21" data-category="family" data-url="https://www.youtube.com/watch?v=F4Tnje7wi-o"><div class="channel-number">122</div><div class="channel-icon">🌺</div><div class="channel-info"><h3>Lilo & Stitch</h3><p>Kids & Animation</p></div><div class="live-badge">LIVE</div><div class="watch">WATCH ▶</div></div>
       <div class="channel-card" tabindex="0" data-player="22" data-category="family" data-url="https://www.youtube.com/watch?v=yHmPWzkhcZ8"><div class="channel-number">123</div><div class="channel-icon">🐭</div><div class="channel-info"><h3>Mickey Mouse</h3><p>Kids & Animation</p></div><div class="live-badge">LIVE</div><div class="watch">WATCH ▶</div></div>
       <div class="channel-card" tabindex="0" data-player="23" data-category="family" data-url="https://www.youtube.com/watch?v=yzKTO-6KWHU"><div class="channel-number">124</div><div class="channel-icon">🏎️</div><div class="channel-info"><h3>Pixar Cars</h3><p>Kids & Animation</p></div><div class="live-badge">LIVE</div><div class="watch">WATCH ▶</div></div>
-      <div class="channel-card" tabindex="0" data-player="24" data-category="family" data-url="https://www.youtube.com/watch?v=s1Ylmj87gXY"><div class="channel-number">125</div><div class="channel-icon">🪄</div><div class="channel-info"><h3>Wizards of Waverly Place</h3><p>Family Entertainment</p></div><div class="live-badge">LIVE</div><div class="watch">WATCH ▶</div></div>
+      <div class="channel-card" tabindex="0" data-player="24" data-category="family" data-url="https://www.youtube.com/watch?v=s1Ylmj87gXY"><div class="channel-number">125</div><div class="channel-icon">🪄</div><div class="channel-info"><h3>Wizards of Waverly Place</h3><p>Kids & Family</p></div><div class="live-badge">LIVE</div><div class="watch">WATCH ▶</div></div>
       <div class="channel-card" tabindex="0" data-player="25" data-category="family" data-url="https://www.youtube.com/watch?v=2MC5ltEDu7w"><div class="channel-number">126</div><div class="channel-icon">⭐</div><div class="channel-info"><h3>Disney Kids Original Series</h3><p>Kids & Family</p></div><div class="live-badge">LIVE</div><div class="watch">WATCH ▶</div></div>
       <div class="channel-card" tabindex="0" data-player="26" data-category="local" data-url="https://www.youtube.com/watch?v=BbCxHt5vUik"><div class="channel-number">127</div><div class="channel-icon">📍</div><div class="channel-info"><h3>Philadelphia NBC10</h3><p>Local News</p></div><div class="live-badge">LIVE</div><div class="watch">WATCH ▶</div></div>
       <div class="channel-card" tabindex="0" data-player="27" data-category="local" data-url="https://www.youtube.com/watch?v=Yo5G6C9Qex8"><div class="channel-number">128</div><div class="channel-icon">📍</div><div class="channel-info"><h3>Philadelphia FOX</h3><p>Local News</p></div><div class="live-badge">LIVE</div><div class="watch">WATCH ▶</div></div>
       <div class="channel-card" tabindex="0" data-player="28" data-category="local" data-url="https://www.youtube.com/watch?v=rM8rkzxKZRs"><div class="channel-number">129</div><div class="channel-icon">📍</div><div class="channel-info"><h3>San Francisco Local News</h3><p>Local News</p></div><div class="live-badge">LIVE</div><div class="watch">WATCH ▶</div></div>
+      <div class="channel-card" tabindex="0" data-player="29" data-category="family" data-url="https://www.youtube.com/watch?v=FICYeRybj1Y" data-her-story="true"><div class="channel-number">130</div><div class="channel-icon">📖</div><div class="channel-info"><h3>Her Story</h3><p>Full Episode</p></div><div class="live-badge">WATCH</div><div class="watch">WATCH ▶</div></div>
     </div>
     <div class="no-results" id="no-results">No channels or shows found.</div>
   </div>
 </main>
 <script src="script.js"></script>
+<script>
+document.addEventListener("click", event => {
+  const card = event.target.closest(".channel-card[data-her-story]");
+  if (!card) return;
+  event.preventDefault();
+  event.stopPropagation();
+  location.href = "her-story.html";
+}, true);
+
+document.addEventListener("keydown", event => {
+  if (event.key !== "Enter" && event.key !== " ") return;
+  const card = document.activeElement?.closest?.(".channel-card[data-her-story]");
+  if (!card) return;
+  event.preventDefault();
+  event.stopPropagation();
+  location.href = "her-story.html";
+}, true);
+</script>
 </body>
 </html>
